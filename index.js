@@ -21,7 +21,7 @@ client.on("messageCreate" , msg => {
         msg.reply("good evening everyone in the void! stream starts at 12 today!");
     } else if  (msg.content === "Dante") {
         msg.reply("Yukari has now been tossed into the void! RIP");
-      else if (msg.content === "Another bad yuka take") {
+    } else if (msg.content === "Another bad yuka take") {
       msg.reply("Damn another bad take Yuka!");
     }
 });
