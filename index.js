@@ -19,10 +19,33 @@ client.on("ready" , () => {
 client.on("messageCreate" , msg => {
     if (msg.content === "Welcome everyone please") {
         msg.reply("good evening everyone in the void! stream starts at 12 today!");
-    } else if  (msg.content === "Dante") {
+    } else if  (msg.content === "Dante's wife") {
         msg.reply("Yukari has now been tossed into the void! RIP");
     } else if (msg.content === "Another bad yuka take") {
       msg.reply("Damn another bad take Yuka!");
     }
 });
+client.on("messageCreate" , msg => {
+    if (msg.content === "Hiroshi") {
+        msg.reply("do you wish to speak with my master?!");
+    } else if (msg.content === "Hiro") {
+        msg.reply("shh Master is sleeping! Dont wake the beast!");
+    }
+});
+// we are making roulette command! //
+client.on('messageCreate', msg=> {
+    if(msg.content === '!roulette') {
+        const spin = Math.floor(Math.random() * 37);
+        const color = getRouletteColor(spin);
+        msg.reply(`The roulette landed on drum roll please! ${spin} - ${color}`);
+    }
+});
+function getRouletteColor(number) {
+    if (number === 0) return 'Blue' ;
+    const redNumbers = [
+        1, 3, 5, 7, 9, 12, 14, 16, 18,
+        19, 21, 23, 25, 27, 30, 32, 34, 36
+    ];
+    return redNumbers.includes(number) ? 'red' : 'black' ;
+}
 client.login(process.env.TOKEN);
