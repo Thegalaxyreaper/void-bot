@@ -17,7 +17,7 @@ client.on("ready" , () => {
     console.log(`Logged in as ${client.user.tag}!`)
 });
 // this is the rules accept main command! do not DELETE this duck! you Will break the server!...carry on \\
-async function assignRole(msg, Rolename) {
+async function assignRole(msg, rolename) {
 const member = msg.member;
 const role = msg.guild.roles.cache.find(r => r.name === roleName);
 
