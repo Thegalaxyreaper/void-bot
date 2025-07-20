@@ -16,6 +16,31 @@ const client = new discord.Client({
 client.on("ready" , () => {
     console.log(`Logged in as ${client.user.tag}!`)
 });
+// this is the rules accept main command! do not DELETE this duck! you Will break the server!...carry on \\
+async function assignRole(msg, Rolename) {
+const member = msg.member;
+const role = msg.guild.roles.cache.find(r => r.name === roleName);
+
+if (!role) {
+    return msg.reply (`The role "${rolename}" does not exist.`);
+}
+
+try {
+    await member.role.add(role);
+    msg.reply(`Welcome to the void hotel! Enjoy your stay. you now have access to all the channels.`);
+} catch (error) {
+    console.error(error);
+    msg.reply ("I couldn't assign the role. please contact Ducky or hiro.")
+}
+}
+client.on ("messageCreate" , async (msg) => {
+    if (msg.author.bot) return;
+
+    if (msg.content.toLowerCase() === '!accept') {
+        assignRole(msg, 'Void Travelers');
+    }
+});
+// this is the main command code //
 client.on("messageCreate" , msg => {
     if (msg.content === "Welcome everyone please") {
         msg.reply("good evening everyone in the void! stream starts at 12 today!");
@@ -26,9 +51,9 @@ client.on("messageCreate" , msg => {
     }
 });
 client.on("messageCreate" , msg => {
-    if (msg.content === "Hiroshi") {
+    if (msg.content === "!Hiroshi") {
         msg.reply("do you wish to speak with my master?!");
-    } else if (msg.content === "Hiro") {
+    } else if (msg.content === "!Hiro") {
         msg.reply("shh Master is sleeping! Dont wake the beast!");
     }
 });
