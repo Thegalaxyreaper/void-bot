@@ -24,7 +24,7 @@ client.on("ready" , () => {
 // this is the rules accept main command! do not DELETE this duck! you Will break the server!...carry on \\
 async function assignRole(msg, rolename) {
 const member = msg.member;
-const role = msg.guild.roles.cache.find(r => r.name === roleName);
+const role = msg.guild.roles.cache.find(r => r.name === rolename);
 
 if (!role) {
     return msg.reply (`The role "${rolename}" does not exist.`);
@@ -32,10 +32,10 @@ if (!role) {
 
 try {
     await member.roles.add(role);
-    msg.reply(`Welcome to the void hotel! Enjoy your stay. you now have access to all the channels.`);
+    await msg.reply(`Welcome to the void hotel! Enjoy your stay. you now have access to all the channels.`);
 } catch (error) {
     console.error(error);
-    msg.reply ("I couldn't assign the role. please contact Ducky or hiro.")
+    await msg.reply ("I couldn't assign the role. please contact Ducky or hiro.")
 }
 }
 client.on ("messageCreate" , async (msg) => {
