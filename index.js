@@ -8,9 +8,14 @@ app.listen(3000, () => {
   console.log('Web server is running');
 });
 require ('dotenv').config();
-const discord = require ("discord.js")
-const client = new discord.Client({
-    intents: ["Guilds" , "GuildMessages", "MessageContent" ]
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMembers
+    ]
 });
 
 client.on("ready" , () => {
@@ -26,7 +31,7 @@ if (!role) {
 }
 
 try {
-    await member.role.add(role);
+    await member.roles.add(role);
     msg.reply(`Welcome to the void hotel! Enjoy your stay. you now have access to all the channels.`);
 } catch (error) {
     console.error(error);
@@ -37,7 +42,7 @@ client.on ("messageCreate" , async (msg) => {
     if (msg.author.bot) return;
 
     if (msg.content.toLowerCase() === '!accept') {
-        assignRole(msg, 'Void Travelers');
+        assignRole(msg, 'VoidTravelers');
     }
 });
 // this is the main command code //
