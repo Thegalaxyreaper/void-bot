@@ -53,13 +53,13 @@ client.on("messageCreate" , msg => {
         msg.reply("Yukari has now been tossed into the void! RIP");
     } else if (msg.content === "Another bad yuka take") {
       msg.reply("Damn another bad take Yuka!");
-    }
-});
-client.on("messageCreate" , msg => {
-    if (msg.content === "!Hiroshi") {
+    }  else if  (msg.content === "!Hiroshi") {
         msg.reply("do you wish to speak with my master?!");
     } else if (msg.content === "!Hiro") {
         msg.reply("shh Master is sleeping! Dont wake the beast!");
+    } else if (msg.content === "!toss") {
+        const mention = msg.mentions.user.first();
+        msg.channel.send(`${mention.username} has been tossed in the void by ${msg.author.username}...rip`);
     }
 });
 // we are making roulette command! //
