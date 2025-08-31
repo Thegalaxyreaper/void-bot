@@ -66,7 +66,7 @@ client.on("messageCreate" , msg => {
         msg.reply("You need to mention someone to toss! Example: !toss @username");
     }
 }
-    }});
+    });
 // we are making roulette command! //
 client.on('messageCreate', msg=> {
     if(msg.content === '!roulette') {
