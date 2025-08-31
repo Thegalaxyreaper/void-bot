@@ -58,7 +58,7 @@ client.on("messageCreate" , msg => {
     } else if (msg.content === "!Hiro") {
         msg.reply("shh Master is sleeping! Dont wake the beast!");
     } else if (msg.content === "!toss") {
-        const mention = msg.mentions.user.first();
+        const mention = msg.mentions.users.first();
         msg.channel.send(`${mention.username} has been tossed in the void by ${msg.author.username}...rip`);
     }
 });
