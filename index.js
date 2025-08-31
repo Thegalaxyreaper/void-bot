@@ -57,9 +57,15 @@ client.on("messageCreate" , msg => {
         msg.reply("do you wish to speak with my master?!");
     } else if (msg.content === "!Hiro") {
         msg.reply("shh Master is sleeping! Dont wake the beast!");
-    } else if (msg.content === "!toss") {
-        const mention = msg.mentions.users.first();
+    } else if (msg.content.startsWith("!toss")) {
+    const mention = msg.mentions.users.first();
+
+    if (mention) {
         msg.channel.send(`${mention.username} has been tossed in the void by ${msg.author.username}...rip`);
+    } else {
+        msg.reply("You need to mention someone to toss! Example: !toss @username");
+    }
+}
     }});
 // we are making roulette command! //
 client.on('messageCreate', msg=> {
