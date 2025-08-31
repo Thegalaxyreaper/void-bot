@@ -65,7 +65,7 @@ client.on("messageCreate" , msg => {
     } else {
         msg.reply("You need to mention someone to toss! Example: !toss @username");
     }
-}
+ }
     });
 // we are making roulette command! //
 client.on('messageCreate', msg=> {
