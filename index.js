@@ -60,8 +60,7 @@ client.on("messageCreate" , msg => {
     } else if (msg.content === "!toss") {
         const mention = msg.mentions.users.first();
         msg.channel.send(`${mention.username} has been tossed in the void by ${msg.author.username}...rip`);
-    }
-});
+    }});
 // we are making roulette command! //
 client.on('messageCreate', msg=> {
     if(msg.content === '!roulette') {
