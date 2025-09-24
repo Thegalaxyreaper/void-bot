@@ -57,6 +57,8 @@ client.on("messageCreate" , msg => {
         msg.reply("do you wish to speak with my master?!");
     } else if (msg.content === "!Hiro") {
         msg.reply("shh Master is sleeping! Dont wake the beast!");
+    } else if (msg.content === "!Duckybot") {
+      msg.reply("DUCK! void bot is broken again!");
     } else if (msg.content.startsWith("!toss")) {
     const mention = msg.mentions.users.first();
 
